@@ -24,6 +24,10 @@ public class Movie {
         return titulo;
     }
 
+    public int getDuracion() {
+        return duracion;
+    }
+
     @Override
     public String toString() {
         return "Movie{" +

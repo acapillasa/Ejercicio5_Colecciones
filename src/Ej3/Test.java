@@ -11,27 +11,53 @@ public class Test {
         Movie peli4 = new Movie("Harry Potter",170,2003);
         Movie peli5 = new Movie("Los tres mosqueteros",90,1997);
 
-
+        System.out.println("PELICULAS AÑADIDAS");
         cine.addMovie(peli1);
-        cine.addMovie(peli2);
+        cine.addMovie(peli2,1);
         cine.addMovie(peli3);
-        cine.addMovie(peli4);
+        cine.addMovie(peli4,3);
         cine.addMovie(peli5);
 
         System.out.println();
 
-        /*System.out.println("QUITAR PELICULA DE UNA SALA");
+        System.out.println("EL ARRAYLIST");
+        cine.mostrarArrayListDePeliculas();
+
+        System.out.println();
+
+        System.out.println("ENCONTRAR PELICULA");
+        cine.roomOfMovie("Cars",147,2007);
+
+        System.out.println();
+
+        System.out.println("QUITAR PELICULA DE UNA SALA");
         cine.removeMovie("Harry");
         cine.mostrar();
 
         System.out.println();
 
-        cine.changeRoom(peli2);
-        cine.mostrar();*/
+        System.out.println("SALAS GRATUITAS");
+        cine.freeRooms();
+        cine.mostrarFreeRoooms();
 
         System.out.println();
 
-        cine.mostrarArrayList();
+        System.out.println("CAMBIAR PELICULA DE UNA SALA A OTRA");
+        cine.changeRoom(peli2);
+        cine.mostrar();
+
+        System.out.println();
+
+        System.out.println("MOSTRAR LOS TITULOS DE LAS PELICULAS CON UNA DURACION MENOR QUE LA QUE ESPECIFICAMOS");
+        cine.mostrarMoviesShorterThan(cine.moviesShorterThan(100));
+
+        System.out.println();
+
+        System.out.println("¡¡BORRAR TODAS LA PELICULAS DEL CINE!!");
+        cine.resetCinema();
+        cine.visualizacion();
+
+        System.out.println();
 
     }
 }
