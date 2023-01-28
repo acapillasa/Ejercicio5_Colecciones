@@ -101,6 +101,12 @@ public class Cinema {
         }
     }
 
+    List<Integer> freeRooms() {
+        List<Integer> salasGratuitas = new ArrayList<>();
+        salasGratuitas.add(0);
+        salasGratuitas.add(1);
+        return salasGratuitas;
+    }
 
     void changeRoom(Movie peli) {
         Scanner sc = new Scanner(System.in);
@@ -132,6 +138,32 @@ public class Cinema {
         }
     }
 
+    void resetCinema() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("¿Seguro que quieres borrar todas las peliculas de todo el cine? (true/false)");
+        boolean seguro = sc.nextBoolean();
+
+        if (seguro) {
+            System.out.println("Todas las peliculas del cine han sido eliminadas");
+            Arrays.fill(busyRooms, null);
+            peliculas.clear();
+        }
+
+        if (!seguro) {
+            System.out.println("Nada ha sido borrado");
+        }
+    }
+
+    List<String> moviesShorterThan(int minutosDeDuracion) {
+        List<String> peliculasCortas = new ArrayList<>();
+        for (int i = 0; i < peliculas.size(); i++) {
+            if (peliculas.get(i).getDuracion() < minutosDeDuracion) {
+                peliculasCortas.add(peliculas.get(i).getTitulo());
+            }
+        }
+        return peliculasCortas;
+    }
+
     void visualizacion() {
         System.out.println("Cine "+cine);
         for (int i = 0; i < busyRooms.length; i++) {
@@ -144,15 +176,25 @@ public class Cinema {
         System.out.println("Cine "+cine);
         for (int i = 0; i < busyRooms.length; i++) {
             if (busyRooms[i] == null) {
-                System.out.println("******* - sala "+i);
+                System.out.println("??????? - sala "+i);
             } else {
                 System.out.println(busyRooms[i].getTitulo()+" - sala "+i);
             }
         }
     }
-    void mostrarArrayList() {
+    void mostrarArrayListDePeliculas() {
         for (Movie pelicula : peliculas) {
             System.out.println(pelicula.getTitulo());
+        }
+    }
+    void mostrarFreeRoooms() {
+        for (Integer sala : freeRooms()) {
+            System.out.println(sala);
+        }
+    }
+    void mostrarMoviesShorterThan(List<String> listaDeTitulosDePeliculas) {
+        for (String titulo : listaDeTitulosDePeliculas) {
+            System.out.println(titulo);
         }
     }
 }
